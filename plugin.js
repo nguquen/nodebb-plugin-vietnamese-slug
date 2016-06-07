@@ -1,38 +1,38 @@
 "use strict";
 
-var newsPlugin = {};
+var slugPlugin = {};
 
-newsPlugin.settings = {
+slugPlugin.settings = {
 	name:"nodebb-plugin-vietnamese-slug",
 	from: "àáảãạăằắẳẵặâầấẩẫậđèéẻẽẹêềếểễệìíỉĩịÌÍỈĨỊòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵ",
 	to: "aaaaaaaaaaaaaaaaadeeeeeeeeeeeiiiiiiiiiiooooooooooooooooouuuuuuuuuuuyyyyy"
 };
 
-newsPlugin.init = function(params, callback) {
-	console.log(newsPlugin.settings.get("name") + ":init");
+slugPlugin.init = function(params, callback) {
+	console.log(slugPlugin.settings.get("name") + ":init");
 	callback();
 };
 
-newsPlugin.activate = function(id) {
-	if (id === newsPlugin.settings.get("name")) {
-		console.log(newsPlugin.settings.get("name") + ":activate");
+slugPlugin.activate = function(id) {
+	if (id === slugPlugin.settings.get("name")) {
+		console.log(slugPlugin.settings.get("name") + ":activate");
 	}
 };
 
-newsPlugin.deactivate = function(id) {
-	if (id === newsPlugin.settings.get("name")) {
-		console.log(newsPlugin.settings.get("name") + ":deactivate");
+slugPlugin.deactivate = function(id) {
+	if (id === slugPlugin.settings.get("name")) {
+		console.log(slugPlugin.settings.get("name") + ":deactivate");
 	}
 };
 
-newsPlugin.createTopic = function (data, callback) {
+slugPlugin.createTopic = function (data, callback) {
 	if (data && data.topic && data.topic.slug) {
 		data.topic.slug = slugify(data.topic.slug);
 	}
 	callback(null, data);
 };
 
-newsPlugin.editTopic = function (data, callback) {
+slugPlugin.editTopic = function (data, callback) {
 	if (data && data.topic && data.topic.slug) {
 		data.topic.slug = slugify(data.topic.slug);
 	}
@@ -41,12 +41,12 @@ newsPlugin.editTopic = function (data, callback) {
 
 var slugify = function (str) {
 	if (str == null) return '';
-	var regex = new RegExp('[' + newsPlugin.settings.from + ']', 'g');
+	var regex = new RegExp('[' + slugPlugin.settings.from + ']', 'g');
 	str = String(str).toLowerCase().replace(regex, function(c) {
-		var index = newsPlugin.settings.from.indexOf(c);
-		return newsPlugin.settings.to.charAt(index) || '-';
+		var index = slugPlugin.settings.from.indexOf(c);
+		return slugPlugin.settings.to.charAt(index) || '-';
 	});
 	return str;
 };
 
-module.exports = newsPlugin;
+module.exports = slugPlugin;
