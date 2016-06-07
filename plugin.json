@@ -1,0 +1,11 @@
+{
+  "url": "https://github.com/nguquen/nodebb-plugin-vietnamese-slug",
+  "library": "./plugin.js",
+  "hooks": [
+    {"hook": "static:app.load", "method": "init"},
+    {"hook": "action:plugin.activate", "method": "activate"},
+    {"hook": "action:plugin.deactivate", "method": "deactivate"},
+    {"hook": "filter:topic.create", "method": "createTopic"},
+    {"hook": "filter:topic.edit", "method": "editTopic"}
+  ]
+}
