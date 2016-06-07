@@ -14,13 +14,13 @@ slugPlugin.init = function(params, callback) {
 };
 
 slugPlugin.activate = function(id) {
-	if (id === slugPlugin.settings.get("name")) {
+	if (id === slugPlugin.settings.name) {
 		console.log(slugPlugin.settings.name + ":activate");
 	}
 };
 
 slugPlugin.deactivate = function(id) {
-	if (id === slugPlugin.settings.get("name")) {
+	if (id === slugPlugin.settings.name) {
 		console.log(slugPlugin.settings.name + ":deactivate");
 	}
 };
