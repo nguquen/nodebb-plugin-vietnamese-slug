@@ -9,19 +9,19 @@ slugPlugin.settings = {
 };
 
 slugPlugin.init = function(params, callback) {
-	console.log(slugPlugin.settings.get("name") + ":init");
+	console.log(slugPlugin.settings.name + ":init");
 	callback();
 };
 
 slugPlugin.activate = function(id) {
 	if (id === slugPlugin.settings.get("name")) {
-		console.log(slugPlugin.settings.get("name") + ":activate");
+		console.log(slugPlugin.settings.name + ":activate");
 	}
 };
 
 slugPlugin.deactivate = function(id) {
 	if (id === slugPlugin.settings.get("name")) {
-		console.log(slugPlugin.settings.get("name") + ":deactivate");
+		console.log(slugPlugin.settings.name + ":deactivate");
 	}
 };
 

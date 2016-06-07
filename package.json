@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-vietnamese-slug",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Normalizer vietnamese slug",
   "main": "plugin.js",
   "repository": {
